@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "kve",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Setup better Runkit custom value viewers.",
+	"repository": "https://github.com/Richienb/kve.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -11,14 +11,31 @@
 		"index.d.ts"
 	],
 	"engines": {
-		"node": ">=10"
+		"node": ">=8.3"
 	},
 	"scripts": {
 		"lint": "xo",
 		"test": "yarn lint && ava"
 	},
-	"keywords": [],
-	"dependencies": {},
+	"keywords": [
+		"runkit",
+		"value-viewer",
+		"check",
+		"value",
+		"viewer",
+		"repl",
+		"demo",
+		"extra",
+		"extends",
+		"html",
+		"display"
+	],
+	"dependencies": {
+		"@runkit/value-viewer": "^1.0.0",
+		"@sindresorhus/is": "^1.2.0",
+		"ow": "^0.15.0",
+		"type-fest": "^0.8.1"
+	},
 	"devDependencies": {
 		"ava": "^3.0.0",
 		"eslint-config-richienb": "^0.3.0",

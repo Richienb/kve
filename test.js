@@ -1,13 +1,15 @@
 const test = require("ava")
-const theModule = require(".")
+const kve = require(".")
 
 test("main", (t) => {
-	t.throws(() => {
-		theModule(123)
-	}, {
-		instanceOf: TypeError,
-		message: "Expected a string, got number",
-	})
-
-	t.is(theModule("unicorns"), "unicorns & rainbows")
+	t.snapshot(kve(
+		{ a: 1, b: 2, c: 3 },
+		{
+			title: "Some Viewer",
+			html: (obj) =>
+				Object.entries(obj)
+					.map(([name, value]) => `${name}: ${value}`)
+					.join("<br>"),
+		},
+	))
 })
