@@ -1,6 +1,6 @@
 {
 	"name": "kve",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Setup better Runkit custom value viewers.",
 	"repository": "https://github.com/Richienb/kve.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
