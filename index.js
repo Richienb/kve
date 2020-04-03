@@ -1,22 +1,27 @@
 "use strict"
 
 const { ValueViewerSymbol } = require("@runkit/value-viewer")
-const { default: ow } = require("ow")
-const { default: is } = require("@sindresorhus/is")
+const is = require("@sindresorhus/is")
 
-module.exports = (object, { HTML, html, title = "Custom Viewer", mutate = false }) => {
-	ow(object, ow.object)
-	ow(mutate, ow.boolean)
-	ow(title, ow.any(ow.function, ow.string))
-	html = HTML || html
-	ow(html, ow.any(ow.function, ow.string))
+const { assert } = is
 
-	if (is.function_(title)) title = title(object)
-	if (is.function_(html)) html = html(object)
+module.exports = (object, { html, title = "Custom Viewer", mutate = false }) => {
+	assert.object(object)
+	assert.boolean(mutate)
+	assert.any([is.function, is.string], title)
+	assert.any([is.function, is.string], html)
 
-	const obj = mutate ? object : ({ ...object })
-	Object.defineProperty(obj, ValueViewerSymbol, {
-		value: { title, HTML: html },
+	if (is.function_(title)) {
+		title = title(object)
+	}
+
+	if (is.function_(html)) {
+		html = html(object)
+	}
+
+	const object_ = mutate ? object : ({ ...object })
+	Object.defineProperty(object_, ValueViewerSymbol, {
+		value: { title, HTML: html }
 	})
-	return obj
+	return object_
 }

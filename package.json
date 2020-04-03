@@ -11,7 +11,7 @@
 		"index.d.ts"
 	],
 	"engines": {
-		"node": ">=8.3"
+		"node": ">=10"
 	},
 	"scripts": {
 		"lint": "xo",
@@ -32,19 +32,17 @@
 	],
 	"dependencies": {
 		"@runkit/value-viewer": "^1.0.0",
-		"@sindresorhus/is": "^1.2.0",
-		"ow": "^0.15.0",
-		"type-fest": "^0.8.1"
+		"@sindresorhus/is": "^2.1.0"
 	},
 	"devDependencies": {
-		"ava": "^3.0.0",
-		"eslint-config-richienb": "^0.3.0",
-		"xo": "^0.25.3"
+		"ava": "^3.5.2",
+		"eslint-config-richienb": "^0.4.2",
+		"xo": "^0.28.2"
 	},
 	"resolutions": {
 		"eslint": "^6.8.0"
 	},
 	"xo": {
-		"extends": "richienb/node"
+		"extends": "richienb"
 	}
 }
